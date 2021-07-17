@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  developer-postgres:
+    container_name: ${APP_NAME}-postgres
+    image: postgres
+    ports:
+      - ${TYPEORM_PORT-5432}:5432
+    environment:
+      - POSTGRES_USER=${TYPEORM_USERNAME}
+      - POSTGRES_PASSWORD=${TYPEORM_PASSWORD}
+      - POSTGRES_DB=${TYPEORM_DATABASE}
+      - PGDATA=/data/db
+      - PGTZ=GMT
+    expose:
+      - 5432
+    volumes:
+      - /data/postgres/${APP_NAME}:/data/db/:z
