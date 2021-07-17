@@ -1,0 +1,33 @@
+[
+  {
+    "id": "5cc3059a-af2b-48a9-8b50-803c62d17255",
+    "name": "Teste 1",
+    "sex": "M",
+    "age": 26,
+    "hobby": "Football",
+    "birthdate": "1995-01-01"
+  },
+  {
+    "id": "2a400b54-025d-4087-aa73-ea8bcd0cc2df",
+    "name": "Teste 2",
+    "sex": "F",
+    "age": 27,
+    "hobby": "Games",
+    "birthdate": "1994-01-01"
+  },
+  {
+    "id": "a1816cd0-ec41-4337-b1f5-efd7f484f281",
+    "name": "Teste 3",
+    "sex": "M",
+    "age": 28,
+    "birthdate": "1993-01-01"
+  },
+  {
+    "id": "a5f5a62d-f34a-46a4-bcac-35d0d21017c9",
+    "name": "Teste 4",
+    "sex": "F",
+    "age": 29,
+    "hobby": "Cook",
+    "birthdate": "1992-01-01"
+  }
+]
