@@ -8,6 +8,7 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/'],
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
   moduleNameMapper: {
-    '^@/(.*)': '<rootDir>/src/$1'
+    '^@/(.*)': '<rootDir>/src/$1',
+    'test/(.*)': '<rootDir>/test/$1'
   }
 }

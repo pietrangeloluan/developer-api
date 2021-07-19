@@ -1,23 +1,14 @@
-import { Entity, Service } from '.'
+import { Router } from './index'
+import request from 'supertest'
+import express from 'express'
+const app = express()
 
-type EntityPayload = Omit<
-  Entity,
-  'id' | 'createdAt' | 'deletedAt' | 'updatedAt'
->
-
-const example: EntityPayload = {
-  name: 'Luan',
-  age: 26,
-  birthdate: new Date('01-01-1995'),
-  hobby: 'Pilot',
-  sex: 'M'
-}
+app.use(express.urlencoded({ extended: false }))
+app.use('/developer', Router)
 // TODO: tests are not working yet, this things are just placing holders
-describe('Teste', () => {
-  test('first', async () => {
-    const service = new Service()
-    const asd = await service.insertOne(example)
-
-    expect(asd).toBeTruthy()
-  })
+test('index route works', done => {
+  request(app)
+    .get('/')
+    .expect('Content-Type', /json/)
+    .expect(200, done)
 })

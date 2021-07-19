@@ -10,7 +10,6 @@ import { AppError } from '@/Shared/Protocols'
 import { Developer } from './developer.entity'
 
 type DeveloperQuery = FindConditions<Developer> | FindConditions<Developer>[]
-// export type DeveloperPayload = Developer
 
 export type DeveloperPayload = Omit<
   Developer,
@@ -38,10 +37,10 @@ export class Repository {
     query: Record<string, any> = {},
     { skip = 0, take = 10 } = {}
   ): Promise<{ developers: Developer[]; total: number }> {
-    const where = this.$query.handle(query)
     const [found, total] = await this.$getRepo()
       .createQueryBuilder('developers')
-      .where({ ...where })
+      .where({ ...query })
+      .orderBy('name')
       .skip(skip)
       .take(take)
       .getManyAndCount()
@@ -50,19 +49,6 @@ export class Repository {
 
     throw new AppError($errors.notFound, { entity: 'developers', query })
   }
-
-  // public async find(query: DeveloperQuery = {}): Promise<Developer[]> {
-  //   console.log('query: ', query)
-
-  //   const where = this.$query.handle(query)
-
-  //   console.log('where: ', where)
-
-  //   const found = await this.$getRepo().find({ where })
-  //   if (found.length) return found
-
-  //   throw new AppError($errors.notFound, { entity: 'user', query })
-  // }
 
   public async findOne(query: DeveloperQuery) {
     const where = this.$query.handle(query)

@@ -53,13 +53,6 @@ export class Service {
     }
   }
 
-  // public async find(req): Promise<Entity[]> {
-  //   const { body } = req
-
-  //   const found = await this.$repo.find(body)
-  //   return found
-  // }
-
   public async findOne(req): Promise<Entity> {
     const { id } = req.params
     const query = { id }

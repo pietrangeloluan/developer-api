@@ -1,4 +1,6 @@
+export { Controller } from './developer.controller'
 export { Developer as Entity } from './developer.entity'
-export { default as Seed } from './developer.seed'
+export { Repository } from './developer.repository'
 export { Router } from './developer.router'
 export { Service } from './developer.service'
+export { default as Seed } from './developer.seed'
